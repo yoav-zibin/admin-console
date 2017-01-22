@@ -37,7 +37,7 @@
         <md-list>
           <md-list-item 
               ng-repeat="player in main.recentlyConnected">
-            <img class="md-avatar md-avatar-container" ng-src="{{player.avatarImageUrl}}">
+            <img class="md-avatar md-avatar-container" ng-src="{{main.getAvatar(player)}}">
             <p>{{player.displayName}}</p>
             <p>{{player.playerId}}</p>
           </md-list-item>

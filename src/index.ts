@@ -46,6 +46,16 @@ module main {
     return path;
   }
 
+  export function getAvatar(player: IPlayerInfo) {
+    return replaceToHttps(player.avatarImageUrl);
+  }
+  export function replaceToHttps(url: string) {
+    return replacePrefix(url, "http:", "https:");
+  }
+  function replacePrefix(url: string, from: string, to: string) {
+    return !url ? url : url.indexOf(from) === 0 ? to + url.substr(from.length) : url;
+  }
+
   function createUrlParams(): StringIndexer {
     let query = location.search.substr(1);
     let result:StringIndexer = {};
@@ -64,6 +74,7 @@ module main {
       recentlyConnected.push(playerInfo);
     }
   }
+
   function addFirebaseListeners() {
     console.log('addFirebaseListeners');
     onValue(dbRef('recentlyConnected'), handleRecentlyConnected);

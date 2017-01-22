@@ -31,6 +31,17 @@ var main;
         path = path.substring(path.indexOf('/'));
         return path;
     }
+    function getAvatar(player) {
+        return replaceToHttps(player.avatarImageUrl);
+    }
+    main.getAvatar = getAvatar;
+    function replaceToHttps(url) {
+        return replacePrefix(url, "http:", "https:");
+    }
+    main.replaceToHttps = replaceToHttps;
+    function replacePrefix(url, from, to) {
+        return !url ? url : url.indexOf(from) === 0 ? to + url.substr(from.length) : url;
+    }
     function createUrlParams() {
         var query = location.search.substr(1);
         var result = {};
