@@ -1,0 +1,50 @@
+<html ng-app="MyApp" lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin console</title>
+  <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,"><!-- Suppress browser request for favicon.ico -->
+
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.css">
+  <!-- https://google.github.io/material-design-icons/ -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="ts_output_readonly_do_NOT_change_manually/src/index.js"></script>
+</head>
+<body ng-cloak>
+  <div class="full_screen">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h3>Admin console</h3>
+      </div>
+    </md-toolbar>
+    <md-content layout-padding>
+      <section ng-if="main.recentlyConnected.length">
+        <md-subheader class="md-primary">Recently connected</md-subheader>
+        <md-list>
+          <md-list-item 
+              ng-repeat="player in main.recentlyConnected">
+            <img class="md-avatar md-avatar-container" ng-src="{{player.avatarImageUrl}}">
+            <p>{{player.displayName}}</p>
+            <p>{{player.playerId}}</p>
+          </md-list-item>
+        </md-list>
+        <md-divider inset></md-divider>
+      </section>
+    </md-content>
+  </div>
+</body>
+</html>
