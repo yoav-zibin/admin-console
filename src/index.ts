@@ -100,7 +100,8 @@ module main {
 
   function signin(customToken: string) {
     // You must run on localhost for this to work, so run:
-    // python -m SimpleHTTPServer 8888
+    // sudo npm install http-server -g
+    // http-server -a 127.0.0.1 -p 8888
     // and surf to:
     // http://localhost:8888/index.html?gameId=...&gameDeveloperPassword=...
     firebase.auth().signInWithCustomToken(customToken).then(function() {
